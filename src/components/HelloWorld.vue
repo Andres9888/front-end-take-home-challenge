@@ -1,13 +1,13 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
     <div class="container">
-  <div class="card" v-for="user in users.results" :key="user.phone">
+  <div class="card" v-for="user in users.results" :key="user">
+    <img :src="`${user.picture.large}`">
     <h2>
-    {{ user.phone}}
+    {{ user.name.first}}
   </h2>
     <i class="fas fa-arrow-right"></i>
-    <p>a lonely trip.</p>
+    <p>{{ user.phone}}</p>
     <div class="pic"></div>
     <ul>
       <li></li>
@@ -109,6 +109,9 @@ body {
   width: 100vw;
   height: 100vh;
 }
+img{border-radius:50%;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
 
 .container {
   width: 100%;
@@ -125,6 +128,7 @@ body {
   background-color: #fff;
   overflow: hidden;
   margin-bottom: 4px;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 .container .card:before {
   content: "";
@@ -199,41 +203,9 @@ body {
   z-index: 100;
   width: 400px;
   height: 200px;
-  background-image: url("https://images.unsplash.com/photo-1525543907410-b2562b6796d6?ixlib=rb-0.3.5&s=9ff8e5e718a6a40cbd0e1471235912f4&auto=format&fit=crop&w=3452&q=80");
+  background-color: gray;
   background-size: 100% 100%;
   filter: grayscale(100%);
-}
-.container .card .social {
-  position: absolute;
-  left: 60px;
-  top: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 180px;
-  height: 64px;
-  border-radius: 80px;
-}
-.container .card .social i:nth-of-type(1) {
-  -webkit-transition-delay: 0.4s;
-  transition-delay: 0.4s;
-}
-.container .card .social i:nth-of-type(2) {
-  -webkit-transition-delay: 0.3s;
-  transition-delay: 0.3s;
-}
-.container .card .social i:nth-of-type(3) {
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
-}
-.container .card .social i:nth-of-type(4) {
-  -webkit-transition-delay: 0.1s;
-  transition-delay: 0.1s;
 }
 .container .card:hover i {
   opacity: 1;
