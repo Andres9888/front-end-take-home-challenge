@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>{{ pokemon }}</h2>
+    <h2>{{ users }}</h2>
     
   </div>
 </template>
@@ -16,14 +16,14 @@ export default {
   },
   data: function () {
     return {
-      pokemon: {}
+      users: {}
     }
   },
   created () {
-    axios.get('https://pokeapi.co/api/v2/pokedex/kanto/')
+    axios.get('https://randomuser.me/api/?page=1&results=1&seed=abc&inc=gender,name,nat,phone,picture&nat=us')
       .then(response => {
         console.log(response)
-        this.pokemon = response.data
+        this.users = response.data
       })
       .catch(err => {
         console.log(err)
