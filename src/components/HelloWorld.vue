@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
     <div class="container">
-  <div class="card" v-for="user in users.results" :key="user">
+      <input class="form-control" type="text" v-model="searchQuery" placeholder="Search" />
+
+  <div class="card" v-for="user in filteredUsers" :key="user">
     <img :src="`${user.picture.large}`">
     <h2>
     {{ user.name.first}}
@@ -51,6 +53,7 @@ export default {
   },
   data: function () {
     return {
+      searchQuery:'',
       users: {}
     }
   },
@@ -58,11 +61,22 @@ export default {
     axios.get('https://randomuser.me/api/?page=1&results=10&seed=abc&inc=gender,name,nat,phone,picture&nat=us')
       .then(response => {
         console.log(response)
-        this.users = response.data
+        this.users = response.data.results
       })
       .catch(err => {
         console.log(err)
       })
+  },
+  computed: {
+    filteredUsers: function(){
+      if(this.searchQuery){
+      return this.users.filter((item)=>{
+        return this.searchQuery.toLowerCase().split(' ').every(v => item.name.first.toLowerCase().includes(v))
+      })
+      }else{
+        return this.users;
+      }
+    }
   }
 }
 </script>
