@@ -3,7 +3,7 @@
     <div class="container">
       <input class="form-control" type="text" v-model="searchQuery" placeholder="Search" />
 
-  <div class="card" v-for="user in filteredUsers" :key="user">
+  <div class="card" v-for="(user, index) in filteredUsers" :key="user">
     <img :src="`${user.picture.large}`">
     <h2>
     {{ user.name.first}}
@@ -36,7 +36,7 @@
       <li></li>
       <li></li>
     </ul>
-    <button>
+    <button v-on:click="removeEntry(index)">x
     </button>
   </div>
   </div>
@@ -78,7 +78,12 @@ export default {
       }
     }
   
-  }
+  },
+  methods: {
+    removeEntry:function(index) {
+        this.users.splice(index, 1)
+      }
+}
 }
 </script>
 
