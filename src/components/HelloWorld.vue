@@ -71,12 +71,13 @@ export default {
     filteredUsers: function(){
       if(this.searchQuery){
       return this.users.filter((item)=>{
-        return this.searchQuery.toLowerCase().split(' ').every(v => item.name.first.toLowerCase().includes(v))
+        return this.searchQuery.toLowerCase().split(' ').every(v => item.name.first.toLowerCase().includes(v) || item.phone.toLowerCase().includes(v))
       })
       }else{
         return this.users;
       }
     }
+  
   }
 }
 </script>
