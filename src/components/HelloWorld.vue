@@ -1,14 +1,14 @@
 <template>
   <div class="hello">
-    <input class="form-control" type="text" v-model="searchQuery" placeholder="Search">
+    <div class="container">
+      <input class="searchBar" type="text" v-model="searchQuery" placeholder="Search">
     <form @submit.prevent="submit">
-       <input type="text" v-model="firstname"> 
-       <input type="text" v-model="phone"> 
+       <input type="text" v-model="firstname" placeholder="First Name"> 
+       <input type="text" v-model="phone" placeholder="Phone Number"> 
        <button type="submit">
          Add New User
        </button>
     </form>
-    <div class="container">
   <div class="card" v-for="(user, index) in filteredUsers" :key="user">
     <img :src="`${user.picture.large}`">
     <h2>
@@ -124,7 +124,33 @@ body {
 img{border-radius:50%;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
-
+input{
+  margin-bottom:10px;
+  width:500px;
+  height: 48px;
+  -webkit-box-align: center ;
+    -ms-flex-align: center ;
+    -webkit-align-items: center ;
+    align-items: center ;
+    background-color: #FFFFFF ;
+    border: 1px solid #DDDDDD ;
+    border-radius: 24px ;
+    color: #222222 ;
+    display: inline-flex ;
+    max-width: 100% ;
+    text-align: left ;
+    transition: box-shadow 0.2s ease ;
+    vertical-align: middle ;
+    align-items: center ;
+    background-color: #FFFFFF ;
+    border: 1px solid #DDDDDD ;
+    border-radius: 24px ;
+    color: #222222 ;
+    display: inline-flex ;
+    max-width: 100% ;
+    text-align: left ;
+    transition: box-shadow 0.2s ease ;
+}
 .container {
   width: 100%;
   height: 100%;
@@ -132,6 +158,33 @@ img{border-radius:50%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.container .searchBar {
+  margin-bottom:10px;
+  width:500px;
+  height: 48px;
+  -webkit-box-align: center ;
+    -ms-flex-align: center ;
+    -webkit-align-items: center ;
+    align-items: center ;
+    background-color: #FFFFFF ;
+    border: 1px solid #DDDDDD ;
+    border-radius: 24px ;
+    color: #222222 ;
+    display: inline-flex ;
+    max-width: 100% ;
+    text-align: left ;
+    transition: box-shadow 0.2s ease ;
+    vertical-align: middle ;
+    align-items: center ;
+    background-color: #FFFFFF ;
+    border: 1px solid #DDDDDD ;
+    border-radius: 24px ;
+    color: #222222 ;
+    display: inline-flex ;
+    max-width: 100% ;
+    text-align: left ;
+    transition: box-shadow 0.2s ease ;
 }
 .container .card {
   position: relative;
