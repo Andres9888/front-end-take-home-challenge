@@ -1,17 +1,14 @@
 <template>
   <div class="hello">
+    <input class="form-control" type="text" v-model="searchQuery" placeholder="Search">
     <form @submit.prevent="submit">
        <input type="text" v-model="firstname"> 
-       
        <input type="text" v-model="phone"> 
-       
        <button type="submit">
-         Submitform
+         Add New User
        </button>
     </form>
     <div class="container">
-      <input class="form-control" type="text" v-model="searchQuery" placeholder="Search">
-
   <div class="card" v-for="(user, index) in filteredUsers" :key="user">
     <img :src="`${user.picture.large}`">
     <h2>
@@ -21,28 +18,6 @@
     <p>{{ user.phone}}</p>
     <div class="pic"></div>
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
       <li></li>
     </ul>
     <button v-on:click="removeEntry(index)">x
@@ -165,6 +140,7 @@ img{border-radius:50%;
   background-color: #fff;
   overflow: hidden;
   margin-bottom: 4px;
+  border-radius:5%;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 .container .card:before {
