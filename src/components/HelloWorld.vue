@@ -1,7 +1,16 @@
 <template>
   <div class="hello">
+    <form @submit.prevent="submit">
+       <input type="text" v-model="formdata.firstname"> 
+       
+       <input type="text" v-model="formdata.phone"> 
+       
+       <button type="submit">
+         Submitform
+       </button>
+    </form>
     <div class="container">
-      <input class="form-control" type="text" v-model="searchQuery" placeholder="Search" />
+      <input class="form-control" type="text" v-model="searchQuery" placeholder="Search">
 
   <div class="card" v-for="(user, index) in filteredUsers" :key="user">
     <img :src="`${user.picture.large}`">
@@ -54,7 +63,8 @@ export default {
   data: function () {
     return {
       searchQuery:'',
-      users: {}
+      users: {},
+      formdata:{ firstname: '', lastname: '', email: '', password: '' }
     }
   },
   created () {
@@ -79,12 +89,14 @@ export default {
     }
   
   },
-  methods: {
-    removeEntry:function(index) {
-        this.users.splice(index, 1)
+  methods : {
+      
+      submit(){
+          var user = {"gender":"female","name":{"title":"Miss","first":"Andres","last":"Woods"},"phone":"(362)-351-8980","picture":{"large":"https://randomuser.me/api/portraits/women/88.jpg","medium":"https://randomuser.me/api/portraits/med/women/88.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/88.jpg"},"nat":"US"}
+            this.users.push(user);
       }
-}
-}
+ 
+}}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
