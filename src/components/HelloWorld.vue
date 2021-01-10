@@ -1,9 +1,9 @@
 <template>
   <div class="hello">
     <form @submit.prevent="submit">
-       <input type="text" v-model="formdata.firstname"> 
+       <input type="text" v-model="firstname"> 
        
-       <input type="text" v-model="formdata.phone"> 
+       <input type="text" v-model="phone"> 
        
        <button type="submit">
          Submitform
@@ -63,8 +63,10 @@ export default {
   data: function () {
     return {
       searchQuery:'',
+      firstname:'', 
+      phone:'',
       users: {},
-      formdata:{ firstname: '', lastname: '', email: '', password: '' }
+      
     }
   },
   created () {
@@ -92,7 +94,7 @@ export default {
   methods : {
       
       submit(){
-          var user = {"gender":"female","name":{"title":"Miss","first":"Andres","last":"Woods"},"phone":"(362)-351-8980","picture":{"large":"https://randomuser.me/api/portraits/women/88.jpg","medium":"https://randomuser.me/api/portraits/med/women/88.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/88.jpg"},"nat":"US"}
+          var user = {"gender":"female","name":{"title":"Miss","first":this.firstname,"last":"Woods"},"phone":this.phone,"picture":{"large":"https://randomuser.me/api/portraits/women/88.jpg","medium":"https://randomuser.me/api/portraits/med/women/88.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/88.jpg"},"nat":"US"}
             this.users.push(user);
       }
  
