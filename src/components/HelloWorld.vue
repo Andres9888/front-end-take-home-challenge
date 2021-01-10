@@ -96,6 +96,9 @@ export default {
       submit(){
           var user = {"gender":"female","name":{"title":"Miss","first":this.firstname,"last":"Woods"},"phone":this.phone,"picture":{"large":"https://randomuser.me/api/portraits/women/88.jpg","medium":"https://randomuser.me/api/portraits/med/women/88.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/88.jpg"},"nat":"US"}
             this.users.push(user);
+      },
+      removeEntry:function(index) {
+        this.users.splice(index, 1)
       }
  
 }}
