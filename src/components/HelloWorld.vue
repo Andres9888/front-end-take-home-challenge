@@ -69,7 +69,7 @@ export default {
   methods : {
       
       submit(){
-          var user = {"gender":"female","name":{"title":"Miss","first":this.firstname,"last":"Woods"},"phone":this.phone,"picture":{"large":"https://randomuser.me/api/portraits/women/88.jpg","medium":"https://randomuser.me/api/portraits/med/women/88.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/88.jpg"},"nat":"US"}
+          var user = {"gender":"","name":{"first":this.firstname},"phone":this.phone,"picture":{"large":"","medium":"","thumbnail":""},"nat":"US"}
             this.users.push(user);
       },
       removeEntry:function(index) {
@@ -120,6 +120,10 @@ body {
   background-color: #e6e5e1;
   width: 100vw;
   height: 100vh;
+  background-color: #E5E5F7;
+opacity: 0.6;
+background-image:  linear-gradient(#444CF7 1.6px, transparent 1.6px), linear-gradient(to right, #444CF7 1.6px, #E5E5F7 1.6px);
+background-size: 32px 32px;
 }
 img{border-radius:50%;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
